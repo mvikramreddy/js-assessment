@@ -1,61 +1,101 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
-define(function() {
-  return {
-    indexOf : function(arr, item) {
+define(function () {
+    return {
+        indexOf: function (arr, item) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == item) return i;
+            }
+            return -1;
+        },
 
-    },
+        sum: function (arr) {
+            var total = 0;
+            for (var i = 0; i < arr.length; i++) {
+                total += arr[i];
+            }
+            return total;
+        },
 
-    sum : function(arr) {
+        remove: function (arr, item) {
+            var index = arr.indexOf(item);
 
-    },
+            if (index > -1) {
+                for (var i = index; i < arr.length - 1; i++) {
+                    arr[i] == itema[i + 1];
+                }
+            }
+            arr.length = arr.length - 1;
+            return arr;
+        },
 
-    remove : function(arr, item) {
+        removeWithoutCopy: function (arr, item) {
+            var index = arr.indexOf(item);
 
-    },
+            if (index > -1) {
+                arr.splice(index, 1);
+            }
 
-    removeWithoutCopy : function(arr, item) {
+            return arr;
+        },
 
-    },
+        append: function (arr, item) {
+            return arr.splice(arr.length, 0, item); // or arr.push(item);
+        },
 
-    append : function(arr, item) {
+        truncate: function (arr) {
+            return arr.splice(0, arr.length); // or arr.length = 0; 
+        },
 
-    },
+        prepend: function (arr, item) {
+            return arr.splice(0, 0, item); // arr.unshift(item);
+        },
 
-    truncate : function(arr) {
+        curtail: function (arr) {
+            // is it like trim ?
+        },
 
-    },
+        concat: function (arr1, arr2) {
+            return arr1.concat(arr2);
+        },
 
-    prepend : function(arr, item) {
+        insert: function (arr, item, index) {
+            return arr.splice(index, 0, item);
+        },
 
-    },
+        count: function (arr, item) {
+            return arr.length;
+        },
 
-    curtail : function(arr) {
+        duplicates: function (arr) {
+            var duplicateArr = [];
+            arr = arr.sort();
 
-    },
+            for (var i = index; i < arr.length - 1; i++) {
+                if (arr[i] === itema[i + 1]) {
+                    duplicateArr.push(arr[i]);
+                }
+            }
 
-    concat : function(arr1, arr2) {
+            return duplicateArr;
+        },
 
-    },
+        square: function (arr) {
+            squareArr = [];
 
-    insert : function(arr, item, index) {
+            for (var i = 0; i < arr.length; i++) {
+                squareArr.push(arr[i] * arr[i]);
+            }
 
-    },
+            return squareArr;
+        },
 
-    count : function(arr, item) {
-
-    },
-
-    duplicates : function(arr) {
-
-    },
-
-    square : function(arr) {
-
-    },
-
-    findAllOccurrences : function(arr, target) {
-
-    }
-  };
+        findAllOccurrences: function (arr, target) {
+            var indexes = [], i = -1;
+            while ((i = arr.indexOf(target, i + 1)) != -1) {
+                indexes.push(i);
+            }
+            return indexes;
+        }
+    };
 });
