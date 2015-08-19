@@ -8,7 +8,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function () {
     return {
         globals: function () {
-            myObject = {
+            var myObject = {
                 name: 'Jory'
             };
 
@@ -17,7 +17,7 @@ define(function () {
 
         functions: function (flag) {
 
-            function getValue() {
+           var getValue =  function (flag) {
                 if (flag) {
                     return 'a';
                 }
@@ -30,7 +30,7 @@ define(function () {
         },
 
         parseInt: function (num) {
-            return Integer.parseInt(num);
+            return Integer.parseInt(num, 10);
         },
 
         identity: function (val1, val2) {
