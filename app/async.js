@@ -1,13 +1,17 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(['jquery'], function ($) {
-    return {
-         then: function(callback){
-          callback(true);
-        }
-        },
+  
+  async : function(value) {
+      //register multiple callbacks into callback queues
+    var dfd = $.Deferred();
+    setTimeout(function() {
+      dfd.resolve(value);
+    }, 10);
+    return dfd.promise();
+  }
 
-        manipulateRemoteData: function (url) {
+  manipulateRemoteData: function (url) {
            
             var request = new XMLHttpRequest();
               return {

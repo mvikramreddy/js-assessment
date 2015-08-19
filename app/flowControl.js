@@ -17,19 +17,11 @@ define(function () {
             if (undefined != num && !isNaN(num)) {
 
                 returnVal = num;
-                var divBy3 = (num % 3 === 0);
-                var divBy5 = (num % 5 === 0);
-
-                if (divBy3 && divBy5) {
-                    returnVal = 'fizzbuzz';
+                if (divBy3) {
+                    returnVal = 'fizz';
                 }
-                else {
-                    if (divBy3) {
-                        returnVal = 'fizz';
-                    }
-                    else if (divBy5) {
-                        returnVal = 'buzz';
-                    }
+                if (divBy5) {
+                    returnVal += 'buzz';
                 }
             }
 
