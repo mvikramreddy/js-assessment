@@ -18,6 +18,5 @@ define(function() {
       }
       return props;
     }
-    }
   };
 });
