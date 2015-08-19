@@ -17,16 +17,15 @@ define(function () {
 
         functions: function (flag) {
 
-            var getValue = function (flag) {
-                if (flag) {
-                    return 'a';
-                }
-                else {
-                    return 'b';
-                }
+            var getValue;
+      
+            if (flag) {
+                getValue = function() { return "a"; }
+            } else {
+                getValue = function() { return "b"; }
             }
 
-            return getValue;
+            return getValue();
         },
 
         parseInt: function (num) {

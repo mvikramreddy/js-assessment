@@ -18,15 +18,15 @@ define(function () {
         },
 
         remove: function (arr, item) {
-            var index = arr.indexOf(item);
+            var ret = [];
 
-            if (index > -1) {
-                for (var i = index; i < arr.length - 1; i++) {
-                    arr[i] == itema[i + 1];
-                }
+            for (var i = 0, len = arr.length; i < len; i++) {
+              if (arr[i] !== item) {
+                ret.push(arr[i]);
+              }
             }
-            arr.length = arr.length - 1;
-            return arr;
+
+            return ret;
         },
 
         removeWithoutCopy: function (arr, item) {
@@ -40,19 +40,23 @@ define(function () {
         },
 
         append: function (arr, item) {
-            return arr.splice(arr.length, 0, item); // or arr.push(item);
+            arr.push(item);
+            return arr; //return arr.splice(arr.length, 0, item); // or arr.push(item);
         },
 
         truncate: function (arr) {
-            return arr.splice(0, arr.length); // or arr.length = 0; 
+            arr.pop();
+            return arr; // or arr.length = 0; 
         },
 
         prepend: function (arr, item) {
-            return arr.splice(0, 0, item); // arr.unshift(item);
+            arr.unshift(item);
+            return arr; //return arr.splice(0, 0, item); // arr.unshift(item);
         },
 
         curtail: function (arr) {
-            // is it like trim ?
+            arr.shift(arr);
+            return arr;
         },
 
         concat: function (arr1, arr2) {
@@ -64,7 +68,15 @@ define(function () {
         },
 
         count: function (arr, item) {
-            return arr.length;
+            var count = 0;
+
+            for (var i = 0, len = arr.length; i < len; i++) {
+              if (arr[i] === item) {
+                count++;
+              }
+            }
+
+            return count;
         },
 
         duplicates: function (arr) {
