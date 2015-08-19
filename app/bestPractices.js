@@ -30,7 +30,7 @@ define(function () {
         },
 
         parseInt: function (num) {
-            return Integer.parseInt(num, 10);
+            return parseInt(num, 10);
         },
 
         identity: function (val1, val2) {
