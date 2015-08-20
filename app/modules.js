@@ -4,10 +4,13 @@ define(function() {
   return {
     createModule : function(str1, str2) {
         return {
-        name: str1,
-        department: str2,
-        printme : function(){
-          return "" + this.name + ", test";
+             sayIt : function() {
+             return this.greeting + ', ' + this.name;
+          },
+
+          name : str2,
+          greeting : str1
+        
         }
       }
     }
